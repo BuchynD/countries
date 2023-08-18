@@ -17,7 +17,7 @@ function App() {
     try {
       const { data } = await axios.get<ICountry[]>(url);
       data.sort((country1, country2) =>
-        country1.name.common < country2.name.common ? -1 : 1
+        country1.name.common < country2.name.common ? -1 : 1,
       );
       setCountries(data);
       setError("");
@@ -33,14 +33,14 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       {error && <Error error={error} />}
       <CountryGrid>
         {countries.map((country) => (
           <CountryCard country={country} key={country.name.common} />
         ))}
       </CountryGrid>
-    </div>
+    </>
   );
 }
 

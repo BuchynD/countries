@@ -9,14 +9,14 @@ export default function CountryCard({ country }: CountryCardProps) {
 
   return (
     <article
-      className={`${
+      className={`break-words rounded border p-2 shadow-2xl ${
         country.independent ? "independent" : "not-independent"
-      } rounded p-2 border shadow-2xl`}
+      }`}
     >
       <img src={country.flags.png} alt={country.flags.alt} className="m-auto" />
-      <h3 className="text-xl font-bold text-center">{country.name.common}</h3>
+      <h3 className="text-center text-xl font-bold">{country.name.common}</h3>
       {country.name.nativeName && (
-        <strong className="text-lg font-bold text-center block">
+        <strong className="block text-center text-lg font-bold">
           {country.name.nativeName[countryLanguage]?.common}
         </strong>
       )}
