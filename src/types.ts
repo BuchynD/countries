@@ -9,6 +9,7 @@ export default interface ICountry {
             }
         }
     }
+    independent: boolean
     flags: {
         png: string
         svg: string

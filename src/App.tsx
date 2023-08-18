@@ -24,7 +24,7 @@ import ICountry from './types';
 // }
 
 function App() {
-  const url = "https://restcountries.com/v3.1/all?fields=name,flags";
+  const url = "https://restcountries.com/v3.1/all?fields=name,flags,independent";
 
   const [error, setError] = useState("");
 
