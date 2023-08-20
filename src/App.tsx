@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import CountryCard from "./components/CountryCard";
 import CountryGrid from "./components/CountryGrid";
 import Error from "./components/Error";
+import Loading from "./components/Loading";
 import ICountry from "./types";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
       {error && <Error error={error} />}
+      {!countries.length && !error && <Loading />}
       <CountryGrid>
         {countries.map((country) => (
           <CountryCard country={country} key={country.name.common} />
