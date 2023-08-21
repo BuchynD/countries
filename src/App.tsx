@@ -8,11 +8,14 @@ import ICountry from "./types";
 
 function App() {
   const url =
-    "https://restcountries.com/v3.1/all?fields=name,flags,independent";
+    "https://restcountries.com/v3.1/all?fields=name,flags,independent,region";
 
   const [error, setError] = useState("");
 
   const [countries, setCountries] = useState<ICountry[]>([]);
+  const regions = Array.from(
+    new Set(countries.map((country) => country.region)),
+  );
 
   async function fetchCountries() {
     try {
@@ -35,13 +38,20 @@ function App() {
 
   return (
     <>
-      {error && <Error error={error} />}
       {!countries.length && !error && <Loading />}
-      <CountryGrid>
-        {countries.map((country) => (
-          <CountryCard country={country} key={country.name.common} />
-        ))}
-      </CountryGrid>
+      {error && <Error error={error} />}
+      {regions.map((region) => (
+        <section key={region}>
+          <h1 className="my-3 text-3xl">{region}</h1>
+          <CountryGrid key={region}>
+            {countries
+              .filter((country) => country.region === region)
+              .map((country) => (
+                <CountryCard country={country} key={country.name.common} />
+              ))}
+          </CountryGrid>
+        </section>
+      ))}
     </>
   );
 }

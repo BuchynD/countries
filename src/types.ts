@@ -10,6 +10,7 @@ export default interface ICountry {
     };
   };
   independent: boolean;
+  region: string;
   flags: {
     png: string;
     svg: string;
