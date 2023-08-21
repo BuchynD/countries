@@ -10,6 +10,6 @@ body {
   @apply border-main-700 bg-main-300;
 }
 
-.not-independent {
+.dependent {
   @apply border-gray-700 bg-gray-300;
 }

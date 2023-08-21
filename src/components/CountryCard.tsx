@@ -10,7 +10,7 @@ export default function CountryCard({ country }: CountryCardProps) {
   return (
     <article
       className={`break-words rounded border p-2 shadow-lg ${
-        country.independent ? "independent" : "not-independent"
+        country.independent ? "independent" : "dependent"
       }`}
     >
       <img

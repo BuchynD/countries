@@ -43,7 +43,7 @@ function App() {
       {regions.map((region) => (
         <section key={region}>
           <h1 className="my-3 text-3xl">{region}</h1>
-          <CountryGrid key={region}>
+          <CountryGrid>
             {countries
               .filter((country) => country.region === region)
               .map((country) => (
