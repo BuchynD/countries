@@ -17,6 +17,7 @@ export default function CountryCard({ country }: CountryCardProps) {
         src={country.flags.png}
         alt={country.flags.alt}
         className="m-auto h-20"
+        height="5rem"
       />
       <h3 className="text-center text-xl font-bold">{country.name.common}</h3>
       {country.name.nativeName && (
